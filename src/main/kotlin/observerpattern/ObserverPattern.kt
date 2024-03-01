@@ -14,7 +14,7 @@ class Barista : Observable() {
     }
 
     fun makeCoffee() {
-        setChanged()
+        setChanged() //update 사항 반영
         notifyObservers(Coffee(this.coffeeName))
     }
 
@@ -24,7 +24,7 @@ class Barista : Observable() {
 class Customer(val name: String) : Observer {
 
     override fun update(o: Observable?, arg: Any?) {
-        val coffee = arg as Coffee
+        val coffee = arg as Coffee // coffee 로 캐스팅
         println("${name}이 ${coffee.name}을 받았습니다")
     }
 }
@@ -40,7 +40,7 @@ fun main() {
 
     barista.addObserver(customer)
     barista.addObserver(customer2)
-    barista.addObserver(customer)
+    barista.addObserver(customer3)
 
     barista.makeCoffee()
 }
