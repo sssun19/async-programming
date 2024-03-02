@@ -14,7 +14,7 @@ class Barista : Observable() {
     }
 
     fun makeCoffee() {
-        setChanged() //update 사항 반영
+        setChanged() //update 변경 사항 반영
         notifyObservers(Coffee(this.coffeeName))
     }
 
@@ -43,4 +43,7 @@ fun main() {
     barista.addObserver(customer3)
 
     barista.makeCoffee()
+
+    // 옵저버 패턴은 데이터를 제공하는 측에서 데이터를 소비하는 측에 통지하는 푸시 (Push-Based) 방식이다.
+
 }

@@ -1,17 +1,16 @@
 package iteratorpattern
 
 
-data class Car(val brand: String)
+data class Car(val brand:String)
 
-class CarIterable(val cars: List<Car> = listOf()) : Iterable<Car> {
-
+class CarIterable(val cars: List<Car> = listOf()) :Iterable<Car> {
     override fun iterator(): Iterator<Car> = CarIterator(cars)
 
 }
 
-class CarIterator(val cars: List<Car> = listOf(), var index: Int = 0) : Iterator<Car> {
+class CarIterator(val cars: List<Car> = listOf(), var index:Int = 0) :Iterator<Car> {
     override fun hasNext(): Boolean {
-        return cars.size > index
+        return cars.size > index //cars의 size 가 index보다 큰 경우 true를 반환
     }
 
     override fun next(): Car {
@@ -21,12 +20,11 @@ class CarIterator(val cars: List<Car> = listOf(), var index: Int = 0) : Iterator
 }
 
 fun main() {
-    val carIterable = CarIterable(listOf(Car("람보르기니"), Car("페라리")))
+    val carIterable = CarIterable(listOf(Car("람보르기니"), Car("페라리"), Car("BMW")))
 
     val iterator = carIterable.iterator()
 
     while (iterator.hasNext()) {
         println("브랜드 : ${iterator.next()}")
     }
-
 }
