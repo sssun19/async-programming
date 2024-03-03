@@ -40,7 +40,7 @@ fun main() {
 
     barista.addObserver(customer)
     barista.addObserver(customer2)
-    barista.addObserver(customer)
+    barista.addObserver(customer) // list에 동일한 객체가 두 번 들어가지 않음.
 
     barista.makeCoffee()
 
